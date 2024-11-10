@@ -12,12 +12,11 @@
   },
   "scripts": {
     "build": "tsup",
-    "build:dev": "cross-env NODE_ENV=development tsup",
-    "build:prod": "cross-env NODE_ENV=production tsup",
-    "dev": "cross-env NODE_ENV=development tsup --watch",
-    "start:dev": "cross-env NODE_ENV=development node dist/index.js",
-    "start:prod": "cross-env NODE_ENV=production node dist/index.js",
-    "test": "cross-env NODE_ENV=test vitest run",
+    "build:dev": "cross-env NODE_ENV=development ENV_PATH=./config/.env.development tsup",
+    "build:prod": "cross-env NODE_ENV=production ENV_PATH=./config/.env.production tsup",
+    "start:dev": "cross-env NODE_ENV=development ENV_PATH=./config/.env.development node dist/index.js",
+    "start:prod": "cross-env NODE_ENV=production ENV_PATH=./config/.env.production node dist/index.js",
+    "test": "cross-env NODE_ENV=test ENV_PATH=./config/.env.test vitest run",
     "test:watch": "cross-env NODE_ENV=test vitest watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -36,17 +35,6 @@
   ],
   "license": "MIT",
   "packageManager": "pnpm@9.9.0",
-  "tsup": {
-    "clean": true,
-    "dts": true,
-    "entry": [
-      "src/index.ts"
-    ],
-    "minify": true,
-    "sourcemap": true,
-    "splitting": false,
-    "treeshake": true
-  },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.14.0",
