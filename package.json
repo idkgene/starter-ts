@@ -30,6 +30,7 @@
     "starter"
   ],
   "license": "MIT",
+  "packageManager": "pnpm@9.9.0",
   "tsup": {
     " minify": true,
     "clean": true,
