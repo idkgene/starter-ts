@@ -25,7 +25,9 @@
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp && npm publish",
-    "docs": "typedoc --out docs src"
+    "docs": "typedoc --out docs src",
+    "prepare": "husky init",
+    "pre-commit": "lint-staged && pnpm typecheck && pnpm test"
   },
   "description": "TypeScript starter template",
   "author": "idkgene",
@@ -33,6 +35,13 @@
     "typescript",
     "starter"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idkgene/starter-ts.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "license": "MIT",
   "packageManager": "pnpm@9.9.0",
   "devDependencies": {
@@ -56,5 +65,8 @@
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vitest": "^2.1.4"
+  },
+  "dependencies": {
+    "effect": "^3.11.4"
   }
 }
